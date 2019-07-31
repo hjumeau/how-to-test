@@ -1,12 +1,12 @@
 import React from 'react';
 import { LoginForm, LoginFormState } from './components/LoginForm';
 
-interface Props {
+interface LoginProps {
   title: string;
   onSubmit: (value: LoginFormState) => void;
 }
 
-export const Login: React.FunctionComponent<Props> = ({title, onSubmit}) => {
+export const Login: React.FunctionComponent<LoginProps> = ({title, onSubmit}) => {
   return (
     <div>
       <h2>{title}</h2>

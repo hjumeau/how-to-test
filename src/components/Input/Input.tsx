@@ -1,6 +1,6 @@
 import React, { ChangeEvent } from 'react';
 
-interface Props {
+interface InputProps {
   id: string;
   value: string;
   inputType: string;
@@ -8,7 +8,7 @@ interface Props {
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
-export const Input: React.FunctionComponent<Props> = ({id, inputType, labelName, onChange, value}) => {
+export const Input: React.FunctionComponent<InputProps> = ({id, inputType, labelName, onChange, value}) => {
   return (
       <div>
         <label>{labelName}</label>

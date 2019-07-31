@@ -1,7 +1,7 @@
 import React, { ChangeEvent, useState } from 'react';
 import { Input } from '../../../../components/Input';
 
-interface Props {
+interface LoginFormProps {
   onSubmit: (value: LoginFormState) => void;
 }
 
@@ -10,7 +10,7 @@ export interface LoginFormState {
   password: string;
 }
 
-export const LoginForm: React.FunctionComponent<Props> = ({onSubmit}) => {
+export const LoginForm: React.FunctionComponent<LoginFormProps> = ({onSubmit}) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const onUsernameChange = (event: ChangeEvent<HTMLInputElement>) => {setUsername(event.target.value); };

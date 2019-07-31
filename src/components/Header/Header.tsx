@@ -1,10 +1,10 @@
 import React from 'react';
 
-interface Props {
+interface HeaderProps {
   text: string;
 }
 
-export const Header: React.FunctionComponent<Props> = (props) => {
+export const Header: React.FunctionComponent<HeaderProps> = (props) => {
   return (
     <div>
       <h1>{props.text}</h1>
