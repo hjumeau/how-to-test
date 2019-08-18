@@ -1,18 +1,20 @@
-import React, { ChangeEvent } from 'react';
+import React from 'react';
 
-interface InputProps {
+interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   id: string;
-  value: string;
-  inputType: string;
+  inputType?: string;
   labelName: string;
-  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
-export const Input: React.FunctionComponent<InputProps> = ({id, inputType, labelName, onChange, value}) => {
+export const Input: React.FunctionComponent<InputProps> = ({inputType, labelName, id, ...props}) => {
   return (
       <div>
-        <label>{labelName}</label>
-        <input type={inputType} id={id} onChange={onChange} value={value}/>
+        <label htmlFor={id}>{labelName}</label>
+        <input {...props} type={inputType} id={id} />
       </div>
     );
+};
+
+Input.defaultProps = {
+  inputType: 'text',
 };

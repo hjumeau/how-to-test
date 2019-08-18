@@ -5,22 +5,29 @@ import { Header } from './components/Header';
 import { Home } from './scenes/Home';
 import { Login } from './scenes/Login';
 import { LoginFormState } from './scenes/Login/components/LoginForm';
+import { login } from './services/api/authentication';
 
-const App: React.FunctionComponent = () => {
+export const LOGIN_FAILED_MESSAGE = 'Username/password is wrong. Retry…';
+export const App: React.FunctionComponent = () => {
   const [isAuthenticate, setAuthentication] = React.useState(false);
   const [email, setEmail] = React.useState('');
+  const [loginError, setLoginError] = React.useState('');
   const onSubmit = ({username, password}: LoginFormState) => {
-    if (username === 'test@gmail.com' && password === 'test') {
-      setAuthentication(true);
-      setEmail(username);
-    } else {
-      setAuthentication(false);
-      setEmail('');
-    }
+    login(username, password)
+      .then((customer) => {
+        setAuthentication(true);
+        setEmail(customer.email);
+        setLoginError('');
+      })
+      .catch(() => {
+        setLoginError(LOGIN_FAILED_MESSAGE);
+        setAuthentication(false);
+        setEmail('');
+      });
   };
   const renderContent = (routeProps: RouteProps) => isAuthenticate
     ? <Home email={email} {...routeProps}/>
-    : <Login onSubmit={onSubmit} title='Enter your credentials'{...routeProps}/>;
+    : <Login loginError={loginError} onSubmit={onSubmit} title='Enter your credentials'{...routeProps}/>;
 
   return (
     <Router>
@@ -30,10 +37,8 @@ const App: React.FunctionComponent = () => {
           path='/'
           render={renderContent}
         />
-        <Footer text='Put some style on it'/>
+        <Footer text='Try to win the testing trophy'/>
       </div>
     </Router>
   );
 };
-
-export default App;

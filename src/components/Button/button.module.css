@@ -1,0 +1,36 @@
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.block {
+  width: 100%;
+}
+
+.primary {
+  color: white;
+  background-color: orange;
+}
+
+.secondary {
+  border: solid 1px black;
+  color: black;
+  background-color: white;
+}
+
+.text {
+  background-color: transparent;
+  color: black;
+  height: auto;
+  line-height: 0;
+}
+
+.text:hover, .text:visited, .test:active, .test:focus {
+  background-color: transparent;
+  color: black;
+}
+
+.spinner {
+  width: 30px;
+  height: 30px;
+}

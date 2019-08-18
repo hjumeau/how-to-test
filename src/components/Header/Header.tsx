@@ -4,10 +4,10 @@ interface HeaderProps {
   text: string;
 }
 
-export const Header: React.FunctionComponent<HeaderProps> = (props) => {
+export const Header: React.FunctionComponent<HeaderProps> = ({text}) => {
   return (
     <div>
-      <h1>{props.text}</h1>
+      <h1>{text}</h1>
     </div>
   );
 };
