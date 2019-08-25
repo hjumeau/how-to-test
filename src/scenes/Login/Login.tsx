@@ -1,5 +1,6 @@
 import React from 'react';
 import { LoginForm, LoginFormState } from './components/LoginForm';
+import styles from './login.module.css';
 
 interface LoginProps {
   title: string;
@@ -9,8 +10,8 @@ interface LoginProps {
 
 export const Login: React.FunctionComponent<LoginProps> = ({title, onSubmit, loginError}) => {
   return (
-    <div>
-      <h2>{title}</h2>
+    <div className={styles.container}>
+      <h2 className={styles.title}>{title}</h2>
       <LoginForm error={loginError} onSubmit={onSubmit}/>
     </div>
   );

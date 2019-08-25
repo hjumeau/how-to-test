@@ -1,6 +1,15 @@
 .container {
   display: flex;
   justify-content: center;
+  outline: none;
+  width: 100%;
+  border: 0;
+  border-radius: 4px;
+  padding: 12px 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  cursor: pointer;
 }
 
 .block {
@@ -9,7 +18,7 @@
 
 .primary {
   color: white;
-  background-color: orange;
+  background: #4285F4;
 }
 
 .secondary {

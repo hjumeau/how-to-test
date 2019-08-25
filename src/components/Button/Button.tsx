@@ -23,7 +23,6 @@ export const Button: React.FunctionComponent<ButtonProps> = ({
   ...props
 }) => {
   const classes = classNames(
-    'button',
     styles.container,
     className,
     variant && styles[variant],

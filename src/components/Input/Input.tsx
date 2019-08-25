@@ -1,16 +1,18 @@
 import React from 'react';
+import styles from './input.module.css';
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   id: string;
   inputType?: string;
   labelName: string;
+  containerClass?: string;
 }
 
-export const Input: React.FunctionComponent<InputProps> = ({inputType, labelName, id, ...props}) => {
+export const Input: React.FunctionComponent<InputProps> = ({inputType, labelName, id, containerClass, ...props}) => {
   return (
-      <div>
-        <label htmlFor={id}>{labelName}</label>
-        <input {...props} type={inputType} id={id} />
+      <div className={styles.field}>
+        <label className={styles.label} htmlFor={id}>{labelName}</label>
+        <input className={styles.input} {...props} type={inputType} id={id} />
       </div>
     );
 };

@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './header.module.css';
 
 interface HeaderProps {
   text: string;
@@ -7,7 +8,7 @@ interface HeaderProps {
 export const Header: React.FunctionComponent<HeaderProps> = ({text}) => {
   return (
     <div>
-      <h1>{text}</h1>
+      <h1 className={styles.title}>{text}</h1>
     </div>
   );
 };

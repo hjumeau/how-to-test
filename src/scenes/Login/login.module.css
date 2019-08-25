@@ -1,0 +1,14 @@
+.container {
+    width: 100%;
+    padding: 20px 20px 30px;
+    background-color: white;
+}
+
+.title {
+    margin: 0 0 30px;
+    font-size: 1.3rem;
+    padding: 4px 0;
+    color: #4285F4;
+    font-weight: 700;
+    text-transform: uppercase;
+}

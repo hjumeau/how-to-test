@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, RouteProps } from 'react-router-dom';
+import styles from './app.module.css';
 import { Footer } from './components/Footer';
 import { Header } from './components/Header';
 import { Home } from './scenes/Home';
@@ -27,17 +28,19 @@ export const App: React.FunctionComponent = () => {
   };
   const renderContent = (routeProps: RouteProps) => isAuthenticate
     ? <Home email={email} {...routeProps}/>
-    : <Login loginError={loginError} onSubmit={onSubmit} title='Enter your credentials'{...routeProps}/>;
+    : <Login loginError={loginError} onSubmit={onSubmit} title='Account Login' {...routeProps}/>;
 
   return (
     <Router>
-      <div className='App'>
-        <Header text='React Login Example'/>
-        <Route
-          path='/'
-          render={renderContent}
-        />
-        <Footer text='Try to win the testing trophy'/>
+      <div className={styles.container}>
+        <div className={styles.innerContainer}>
+          <Header text='React Login Example'/>
+          <Route
+            path='/'
+            render={renderContent}
+          />
+          <Footer text='Try to win the testing trophy with a simple react login form'/>
+        </div>
       </div>
     </Router>
   );
