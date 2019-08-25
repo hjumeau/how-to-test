@@ -17,13 +17,13 @@ describe('App Component', () => {
   it('should render the footer text', () => {
     const {getByText} = render(<App/>);
 
-    expect(getByText('Try to win the testing trophy')).not.toBeNull();
+    expect(getByText(/Try to win the testing trophy/i)).not.toBeNull();
   });
 
   it('should render the login form by default', () => {
     const {getByText} = render(<App/>);
 
-    expect(getByText('Enter your credentials')).not.toBeNull();
+    expect(getByText('Account Login')).not.toBeNull();
   });
 
   it('should call the login service with username and password', () => {
