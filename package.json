@@ -21,7 +21,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "cypress:open": "cypress open"
+    "cypress:open": "cypress open",
+    "cy:run": "cypress run --config-file false --env updateSnapshots=true --env failOnSnapshotDiff=true --reporter cypress-image-snapshot/reporter"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -40,7 +41,7 @@
   },
   "devDependencies": {
     "@testing-library/react": "^8.0.7",
-    "cypress": "^3.4.1",
+    "cypress": "^3.6.0",
     "cypress-image-snapshot": "^3.1.1",
     "tslint": "^5.17.0",
     "tslint-react": "^4.0.0"
