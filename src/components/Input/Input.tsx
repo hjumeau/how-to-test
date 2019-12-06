@@ -1,8 +1,7 @@
 import React from 'react';
 import styles from './input.module.css';
 
-interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
-  id: string;
+export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   inputType?: string;
   labelName: string;
   containerClass?: string;
