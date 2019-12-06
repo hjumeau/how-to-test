@@ -1,19 +1,15 @@
 import React, { ChangeEvent, useState } from 'react';
+import { UserLogin } from '../../../../App';
 import { Button } from '../../../../components/Button';
 import { Input } from '../../../../components/Input';
 import styles from './loginForm.module.css';
 
 interface LoginFormProps {
-  onSubmit: (value: LoginFormState) => void;
-  error?: string;
+  onSubmit: (value: UserLogin) => void;
+  errorMessage?: string;
 }
 
-export interface LoginFormState {
-  username: string;
-  password: string;
-}
-
-export const LoginForm: React.FunctionComponent<LoginFormProps> = ({onSubmit, error}) => {
+export const LoginForm: React.FunctionComponent<LoginFormProps> = ({onSubmit, errorMessage}) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const onUsernameChange = (event: ChangeEvent<HTMLInputElement>) => {setUsername(event.target.value); };
@@ -37,7 +33,7 @@ export const LoginForm: React.FunctionComponent<LoginFormProps> = ({onSubmit, er
           onChange={onPasswordChange}
         />
         <Button style={{marginTop: 40}} onClick={onSubmitForm} >Connexion</Button>
-        {!!error && <p className={styles.error}>{error}</p>}
+        {!!errorMessage && <p className={styles.error}>{errorMessage}</p>}
       </form>
     );
 };

@@ -17,14 +17,14 @@ describe('Login Scene', () => {
     expect(getByText(title)).not.toBeNull();
   });
 
-  it('should show a error message if passed one', () => {
+  it('should show a errorMessage message if passed one', () => {
     // GIVEN
     const title = 'Title';
     const onSubmitMock = jest.fn();
-    const errorMsg = 'error message';
+    const errorMsg = 'errorMessage message';
 
     // WHEN
-    const {getByText} = render(<Login title={title} loginError={errorMsg} onSubmit={onSubmitMock}/>);
+    const {getByText} = render(<Login title={title} errorMessage={errorMsg} onSubmit={onSubmitMock}/>);
 
     // THEN
     expect(getByText(errorMsg)).not.toBeNull();

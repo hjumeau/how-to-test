@@ -5,15 +5,20 @@ import { Footer } from './components/Footer';
 import { Header } from './components/Header';
 import { Home } from './scenes/Home';
 import { Login } from './scenes/Login';
-import { LoginFormState } from './scenes/Login/components/LoginForm';
 import { login } from './services/api/authentication';
 
+export interface UserLogin {
+  username: string;
+  password: string;
+}
+
 export const LOGIN_FAILED_MESSAGE = 'Username/password is wrong. Retry…';
+
 export const App: React.FunctionComponent = () => {
   const [isAuthenticate, setAuthentication] = React.useState(false);
   const [email, setEmail] = React.useState('');
   const [loginError, setLoginError] = React.useState('');
-  const onSubmit = ({username, password}: LoginFormState) => {
+  const onSubmit = ({username, password}: UserLogin) => {
     login(username, password)
       .then((customer) => {
         setAuthentication(true);
@@ -28,7 +33,7 @@ export const App: React.FunctionComponent = () => {
   };
   const renderContent = (routeProps: RouteProps) => isAuthenticate
     ? <Home email={email} {...routeProps}/>
-    : <Login loginError={loginError} onSubmit={onSubmit} title='Account Login' {...routeProps}/>;
+    : <Login errorMessage={loginError} onSubmit={onSubmit} title='Account Login' {...routeProps}/>;
 
   return (
     <Router>

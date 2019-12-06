@@ -20,13 +20,13 @@ describe('LoginForm Component', () => {
     expect(onSubmitMock).toHaveBeenCalledWith({username, password});
   });
 
-  it('should show a error message if passed one', () => {
+  it('should show a errorMessage message if passed one', () => {
     // GIVEN
     const onSubmitMock = jest.fn();
-    const errorMsg = 'error message';
+    const errorMsg = 'errorMessage message';
 
     // WHEN
-    const {getByText} = render(<LoginForm error={errorMsg} onSubmit={onSubmitMock}/>);
+    const {getByText} = render(<LoginForm errorMessage={errorMsg} onSubmit={onSubmitMock}/>);
 
     // THEN
     expect(getByText(errorMsg)).not.toBeNull();
