@@ -1,5 +1,6 @@
-import { fireEvent, render } from '@testing-library/react';
+import { fireEvent } from '@testing-library/react';
 import * as React from 'react';
+import { renderWithProviders } from '../../../../helpers/test';
 import { LoginForm } from './LoginForm';
 
 describe('LoginForm Component', () => {
@@ -10,14 +11,18 @@ describe('LoginForm Component', () => {
     const username = 'test@gmail.com';
 
     // WHEN
-    const {getByLabelText, getByText} = render(<LoginForm onSubmit={onSubmitMock}/>);
+    const {getByLabelText, getByText} = renderWithProviders(<LoginForm onSubmit={onSubmitMock}/>);
 
     fireEvent.change(getByLabelText(/Username/i), {target: {value: username}});
     fireEvent.change(getByLabelText(/Password/i), {target: {value: password}});
     fireEvent.click(getByText('Connexion'));
 
     // THEN
-    expect(onSubmitMock).toHaveBeenCalledWith({username, password});
+    expect(onSubmitMock).toHaveBeenCalledWith(
+      {username, password},
+      expect.anything(),
+      expect.anything(),
+    );
   });
 
   it('should show a errorMessage message if passed one', () => {
@@ -26,7 +31,7 @@ describe('LoginForm Component', () => {
     const errorMsg = 'errorMessage message';
 
     // WHEN
-    const {getByText} = render(<LoginForm errorMessage={errorMsg} onSubmit={onSubmitMock}/>);
+    const {getByText} = renderWithProviders(<LoginForm errorMessage={errorMsg} onSubmit={onSubmitMock}/>);
 
     // THEN
     expect(getByText(errorMsg)).not.toBeNull();

@@ -1,5 +1,6 @@
-import { cleanup, fireEvent, render } from '@testing-library/react';
+import { cleanup, fireEvent } from '@testing-library/react';
 import * as React from 'react';
+import { renderWithProviders } from '../../helpers/test';
 import { Login } from './Login';
 
 describe('Login Scene', () => {
@@ -11,7 +12,7 @@ describe('Login Scene', () => {
     const onSubmitMock = jest.fn();
 
     // WHEN
-    const {getByText} = render(<Login title={title} onSubmit={onSubmitMock}/>);
+    const {getByText} = renderWithProviders(<Login title={title} onSubmit={onSubmitMock}/>);
 
     // THEN
     expect(getByText(title)).not.toBeNull();
@@ -24,7 +25,7 @@ describe('Login Scene', () => {
     const errorMsg = 'errorMessage message';
 
     // WHEN
-    const {getByText} = render(<Login title={title} errorMessage={errorMsg} onSubmit={onSubmitMock}/>);
+    const {getByText} = renderWithProviders(<Login title={title} errorMessage={errorMsg} onSubmit={onSubmitMock}/>);
 
     // THEN
     expect(getByText(errorMsg)).not.toBeNull();
@@ -38,13 +39,17 @@ describe('Login Scene', () => {
     const username = 'test@gmail.com';
 
     // WHEN
-    const {getByLabelText, getByText} = render(<Login title={title} onSubmit={onSubmitMock}/>);
+    const {getByLabelText, getByText} = renderWithProviders(<Login title={title} onSubmit={onSubmitMock}/>);
 
     fireEvent.change(getByLabelText(/Username/i), {target: {value: username}});
     fireEvent.change(getByLabelText(/Password/i), {target: {value: password}});
     fireEvent.click(getByText('Connexion'));
 
     // THEN
-    expect(onSubmitMock).toHaveBeenCalledWith({username, password});
+    expect(onSubmitMock).toHaveBeenCalledWith(
+      { username, password },
+      expect.any(Function),
+      expect.any(Object),
+    );
   });
 });

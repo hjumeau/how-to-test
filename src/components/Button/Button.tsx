@@ -30,7 +30,7 @@ export const Button: React.FunctionComponent<ButtonProps> = ({
     block && styles.block,
   );
   return (
-    <button {...props} className={classes} disabled={disabled} type={type}/>
+    <button {...props} className={classes} data-testid={`${props.id}-button`} disabled={disabled} type={type}/>
   );
 };
 

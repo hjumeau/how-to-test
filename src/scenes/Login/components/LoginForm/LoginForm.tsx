@@ -17,18 +17,17 @@ const LoginComponent: React.FunctionComponent<InjectedFormProps<UserLogin> & Log
         component={InputField}
         id='username'
         name='username'
-        labelName='USERNAME'
-        inputType='text'
+        label='USERNAME'
       />
       <Field
         component={InputField}
         id='password'
         name='password'
-        labelName='PASSWORD'
-        inputType='password'
+        label='PASSWORD'
+        type='password'
       />
-      <Button style={{marginTop: 40}} type='submit'>Connexion</Button>
-      {!!errorMessage && <p className={styles.error}>{errorMessage}</p>}
+      <Button id='login-submit' style={{marginTop: 40}} type='submit'>Connexion</Button>
+      {!!errorMessage && <p data-testid='error-message' className={styles.error}>{errorMessage}</p>}
     </form>
   );
 };
