@@ -45,9 +45,13 @@
     ]
   },
   "devDependencies": {
-    "@testing-library/react": "^8.0.7",
+    "@testing-library/react": "^9.3.2",
+    "@types/enzyme": "^3.10.4",
+    "@types/enzyme-adapter-react-16": "^1.0.5",
     "cypress": "^3.6.0",
     "cypress-image-snapshot": "^3.1.1",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.15.1",
     "tslint": "^5.17.0",
     "tslint-react": "^4.0.0"
   }
