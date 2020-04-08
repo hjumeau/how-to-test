@@ -22,7 +22,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "cypress:open": "cypress open",
-    "cy:run": "cypress run --config-file false --env updateSnapshots=true --env failOnSnapshotDiff=true --reporter cypress-image-snapshot/reporter"
+    "cy:run": "cypress run --config-file false --env updateSnapshots=true --env failOnSnapshotDiff=true --reporter cypress-image-snapshot/reporter",
+    "storybook": "start-storybook -p 9009 -s public",
+    "build-storybook": "build-storybook -s public"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -40,9 +42,18 @@
     ]
   },
   "devDependencies": {
+    "@storybook/addon-actions": "^5.3.14",
+    "@storybook/addon-links": "^5.3.14",
+    "@storybook/addon-storyshots": "^5.3.14",
+    "@storybook/addon-storyshots-puppeteer": "^5.3.14",
+    "@storybook/addons": "^5.3.14",
+    "@storybook/preset-create-react-app": "^2.0.0",
+    "@storybook/react": "^5.3.14",
     "@testing-library/react": "^8.0.7",
     "cypress": "^3.6.0",
     "cypress-image-snapshot": "^3.1.1",
+    "puppeteer": "^2.1.1",
+    "react-test-renderer": "^16.13.0",
     "tslint": "^5.17.0",
     "tslint-react": "^4.0.0"
   }

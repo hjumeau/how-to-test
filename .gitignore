@@ -27,3 +27,4 @@ yarn-error.log*
 /cypress/snapshots/login.visual.spec.js/__diff_output__/
 /cypress/videos/
 /cypress/snapshots/All Specs/__diff_output__/
+/src/__image_snapshots__/__diff_output__/
