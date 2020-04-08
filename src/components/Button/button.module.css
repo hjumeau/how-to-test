@@ -2,7 +2,6 @@
   display: flex;
   justify-content: center;
   outline: none;
-  width: 100%;
   border: 0;
   border-radius: 4px;
   padding: 12px 20px;
@@ -12,7 +11,7 @@
   cursor: pointer;
 }
 
-.block {
+.full-width {
   width: 100%;
 }
 
