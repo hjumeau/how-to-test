@@ -1,6 +1,6 @@
 import {cleanup, render} from '@testing-library/react';
 import React from 'react';
-import { Button, Variants } from './Button';
+import { Button } from './Button';
 
 describe('Button Component', () => {
   afterEach(cleanup);
@@ -32,7 +32,7 @@ describe('Button Component', () => {
 
   it('should show the secondary className if secondary variant is passed', () => {
     // WHEN
-    const {getByText} = render(<Button variant={Variants.Secondary}>Connection</Button>);
+    const {getByText} = render(<Button variant='secondary'>Connection</Button>);
     // THEN
     expect(getByText('Connection').classList.contains('secondary')).toEqual(true);
   });
@@ -49,8 +49,8 @@ describe('Button Component', () => {
 
   it('should be full width', () => {
     // WHEN
-    const {getByText} = render(<Button block={true}>Connection</Button>);
+    const {getByText} = render(<Button fullWidth={true}>Connection</Button>);
     // THEN
-    expect(getByText('Connection').classList.contains('block')).toEqual(true);
+    expect(getByText('Connection').classList.contains('full-width')).toEqual(true);
   });
 });

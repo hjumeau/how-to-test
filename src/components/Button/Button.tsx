@@ -2,21 +2,18 @@ import classNames from 'classnames';
 import React from 'react';
 import styles from './button.module.css';
 
-export enum Variants {
-  Primary = 'primary',
-  Secondary = 'secondary',
-}
+export type Variants = 'primary' | 'secondary';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: Variants.Primary | Variants.Secondary;
+  variant?: Variants;
   className?: string;
   disabled?: boolean;
-  block?: boolean;
+  fullWidth?: boolean;
 }
 
 export const Button: React.FunctionComponent<ButtonProps> = ({
   variant,
-  block,
+  fullWidth,
   type,
   className,
   disabled,
@@ -27,7 +24,7 @@ export const Button: React.FunctionComponent<ButtonProps> = ({
     className,
     variant && styles[variant],
     disabled && 'isDisabled',
-    block && styles.block,
+    fullWidth && styles['full-width'],
   );
   return (
     <button {...props} className={classes} disabled={disabled} type={type}/>
@@ -35,9 +32,9 @@ export const Button: React.FunctionComponent<ButtonProps> = ({
 };
 
 Button.defaultProps = {
-  block: false,
   className: '',
   disabled: false,
+  fullWidth: false,
   type: 'button',
-  variant: Variants.Primary,
+  variant: 'primary',
 };
