@@ -19,7 +19,7 @@ describe('LoginForm Component', () => {
   it('should show password label', () => {
     // WHEN
     const loginFormWrapper = mountWithProviders(<LoginForm />);
-    const passwordLabelWrapper = loginFormWrapper.find('[data-testid="label-password"]');
+    const passwordLabelWrapper = loginFormWrapper.find('[data-testid="password-label"]');
 
     // THEN
     expect(passwordLabelWrapper.text()).toEqual('PASSWORD');
