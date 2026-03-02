@@ -13,7 +13,7 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.0.1",
-    "react-scripts": "3.0.1",
+    "react-scripts": "5.0.1",
     "typescript": "3.5.1"
   },
   "scripts": {
@@ -41,7 +41,7 @@
   },
   "devDependencies": {
     "@testing-library/react": "^8.0.7",
-    "cypress": "^3.6.0",
+    "cypress": "^15.10.0",
     "cypress-image-snapshot": "^3.1.1",
     "tslint": "^5.17.0",
     "tslint-react": "^4.0.0"
